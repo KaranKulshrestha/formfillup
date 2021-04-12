@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>
+            Time to Fill Up!
+        </title>
+        <link rel="stylesheet" href="{%static "css/main.css"%}"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1 align='centre'>Fill The Form Please ..</h1>
+        <button type="button" onclick="window.location.href = 'http://127.0.0.1:8000/form-fillup/';" class="btn btn-danger">Click Here !</button>
+
+        <div class="container mergy">
+            {%if profile %}
+            <table class="table table-bordered">
+                <thead>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Profession</th>
+                    <th>Salary</th>
+                </thead>
+
+                {%for prof in profile %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{prof.First_Name}}</td>
+                    <td>{{prof.Last_Name}}</td>
+                    <td>{{prof.Profession}}</td>
+                    <td>{{prof.Salary}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {%else%}
+        <h1>We are not able to load data sorry !! &#128531;</h1>
+        {% endif %}
+    </div>
+    </body>
+</html>
